@@ -1,0 +1,40 @@
+@media(max-width:991.98px){.hero{min-height:440px;padding:55px 0}.hero:after{right:-170px;opacity:.6}.navbar-brand img{width:135px}.section-pad{padding:55px 0}.nav-link{padding:.55rem .2rem}.hero-watch{max-width:320px;margin-top:25px}}
+@media(max-width:575.98px){.hero{padding:48px 0}.hero h1{font-size:2.55rem}.section-pad{padding:45px 0}.product-info{padding:13px}.product-info .btn{font-size:.8rem;padding:.55rem .5rem}.newsletter-form{flex-direction:column}.auth-card{padding:22px}.navbar-brand img{width:120px;height:44px}.whatsapp-float{left:12px;bottom:12px;font-size:.82rem}.cart-line img{width:70px;height:70px}.site-footer{padding-top:40px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+@media(max-width:991.98px){.header-visitor{margin-left:auto;margin-right:.6rem}.site-nav .navbar-collapse{padding:.75rem 0}.site-nav .navbar-nav{align-items:stretch!important}.site-nav .nav-link{display:block}.live-info-track{justify-content:flex-start}}
+@media(max-width:575.98px){.header-visitor{font-size:.68rem}.content-section .row.g-5,.section-pad .row.g-5{--bs-gutter-x:1.25rem}.container,.container-fluid{max-width:100%;overflow-wrap:anywhere}.product-card{min-width:0}.live-info-ticker{font-size:.7rem}}
+
+/* Very small phones (<=350px): keep logo, icons, visitor count and menu button on one row */
+@media(max-width:350px){.navbar-brand img{width:96px;height:36px}.header-actions{gap:5px}.header-visitor{font-size:.6rem;padding:4px 5px;margin-right:4px;letter-spacing:0}}
+
+/* ===== Live info ticker: fixed to the bottom of the screen, seamless continuous scroll ===== */
+:root{--ticker-h:38px}
+body{padding-bottom:var(--ticker-h)}
+.live-info-ticker{position:fixed;left:0;right:0;bottom:0;z-index:1020;height:var(--ticker-h);padding:0;display:flex;align-items:center;overflow:hidden;white-space:nowrap}
+.live-info-track{display:flex;flex:0 0 auto;align-items:center;justify-content:flex-start;flex-wrap:nowrap;white-space:nowrap;width:max-content;min-width:0;padding-left:0;gap:0;font-variant-numeric:tabular-nums;animation:tickerScroll 75s linear infinite;will-change:transform}
+.live-info-group{display:flex;align-items:center;flex-shrink:0}
+.live-info-item{display:flex;align-items:center;gap:16px;padding-right:16px;flex-shrink:0}
+.live-info-ticker:hover .live-info-track{animation-play-state:paused}
+@keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* keep the other bottom-fixed items clear of the ticker */
+.whatsapp-float{bottom:calc(var(--ticker-h) + 14px)}
+.toast-area{bottom:calc(var(--ticker-h) + 14px)}
+/* The ticker is a required scrolling feature: keep it moving even when the system "reduce motion" option is on */
+@media(prefers-reduced-motion:reduce){.live-info-track{animation:tickerScroll 75s linear infinite!important}}
+
+/* ===== Menu fade in / fade out ===== */
+@keyframes menuFadeIn{from{opacity:0}to{opacity:1}}
+@keyframes menuFadeOut{from{opacity:1}to{opacity:0}}
+/* top-level menu items fade in one after another when the page loads */
+.site-nav .navbar-nav>.nav-item>.nav-link{animation:menuFadeIn .6s ease both!important}
+.site-nav .navbar-nav>.nav-item:nth-child(2)>.nav-link{animation-delay:.06s!important}
+.site-nav .navbar-nav>.nav-item:nth-child(3)>.nav-link{animation-delay:.12s!important}
+.site-nav .navbar-nav>.nav-item:nth-child(4)>.nav-link{animation-delay:.18s!important}
+.site-nav .navbar-nav>.nav-item:nth-child(5)>.nav-link{animation-delay:.24s!important}
+.site-nav .navbar-nav>.nav-item:nth-child(6)>.nav-link{animation-delay:.30s!important}
+/* dropdown (Explore): fades in when opened and fades out before it closes */
+.site-nav .dropdown-menu.show{animation:menuFadeIn .28s ease both!important}
+.site-nav .dropdown-menu.show.menu-fade-out{animation:menuFadeOut .22s ease both!important;pointer-events:none}
+/* mobile menu: keep the height slide (fade is added from JS) even if the system "reduce motion" option is on */
+.site-nav .navbar-collapse.collapsing{transition:height .35s ease!important}

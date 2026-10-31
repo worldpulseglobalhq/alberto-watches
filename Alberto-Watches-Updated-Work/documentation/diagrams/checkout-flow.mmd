@@ -1,0 +1,11 @@
+flowchart TD
+    A[Browse Shop] --> B[View Product]
+    B --> C[Add to Cart]
+    C --> D{Cart has items?}
+    D -- No --> A
+    D -- Yes --> E[Enter Checkout Details]
+    E --> F{Form valid?}
+    F -- No --> E
+    F -- Yes --> G[Save Demo Order in localStorage]
+    G --> H[Clear Cart]
+    H --> I[Order Confirmation]
